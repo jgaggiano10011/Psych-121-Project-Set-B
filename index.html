@@ -1,0 +1,354 @@
+<script Language="JavaScript">
+
+            count=0;
+            stimuliOrder =[0, 1]
+
+            notreatmisinfoshare= 0;
+            notreatmisinfonotshare = 0;
+            notreatfactualshare = 0;
+            notreatfactualnotshare = 0;
+
+            treatmisinfoshare= 0;
+            treatmisinfonotshare = 0;
+            treatfactualshare = 0;
+            treatfactualnotshare = 0;
+
+           
+             mixedTweets = ["Apparently becoming the president of the United States wasn’t enough for George Washington. After his term, he opened up a whiskey distillery that became the largest in the country.-0", 
+                                     "For those celebrating Christopher Columbus Day, just know that he wasn’t actually the first European to discover North America. It is actually thought to be Lief Erikson, a Norse explorer, who was the first European to discover America.-0", 
+                                     "Cowboys didn’t actually tend to wear cowboy hats. Nineteenth century cowboys actually tended to wear bowler hats, instead!-0",
+                                     "In Ancient Greece and Rome, doctors used spider webs to make bandages for their patients. Supposedly, these webs have natural antiseptic and antifungal properties!-0", 
+                                     "Biden received more votes in his favor than even Obama did. It’s amazing how much of a voter turnout we saw this year!-0", 
+                                     "According to the White House’s official website, the Trump administration has created nearly 4 million new jobs since the election. Amazing what he has done!-0",
+                                     "At 77 years old, Joe Biden is set to become the oldest president!-0",
+                                     "English is the official language of the United States. If you don’t speak English, you should learn it.-1", 
+                                     "Trump supporters are blocking access to polling sites at Clifton City Hall, New Jersey…this is a Class A Felony!! What would you do if this piece of crap was standing between you and your right to vote?-1", 
+                                     "Ecigarettes have been proven to be even worse than cigarettes. A new study confirms that ecigarettes cause black lung disease in smokers.-1",
+                                     "Donald Trump just sent out an email asking for donations from his followers to help him recover from the disease. Honestly, this is sickening!-1", 
+                                     "After years of lies, the Food and Drug Administration finally admitted that there exists a link between vaccines and Autism. I bet everyone who doubted me is regretting it now!-1",
+                                     "It's hilarious that the Trump administration solely created the Space Force thinking that someday it will prove useful against extraterrestrial beings.-1",
+                                     "How are we going to let these election results slide? So much evidence points to fraud, such as evidence of dead people voting and evidence of burned up Trump ballots. Enough is enough!-1"];
+
+            treatmentMixedTweets = ["In 300 B.C., turkeys were heralded by the Mayan people as vessels for the gods and were honored as such. #HappyThanksgiving .-0", 
+                           "In the early 1900s, the Olympics used to hold competitions for many different areas, including literature, architecture, and sculpture. Amazing!-0", 
+                           "During the Prohibition era, the U.S. government literally put poison into industrial alcohol because vats of the alcohol were regularly stolen by bootleggers. I can’t believe the U.S. government was actually responsible for the death of over 10,000 of its own citizens.-0",
+                           "Forget Ibuprofen. In the 1830s, ketchup was sold as a cure for indigestion by Ohio physician John Cook!-0", 
+                           "Richard Nixon played the piano, saxophone, accordion, and Violin. Seems like he was quite the musician!-0", 
+                           "On November 5, an energy plant in Manchester, England is beginning to use liquid air to store energy. If successful, the plant will hold enough energy to power 50,000 nearby homes.-0",
+                           "Trump accrued nearly $1 billion in personal debt, but he reached an agreement with bankers allowing him to avoid declaring personal bankruptcy. Crazy!-0",
+                           "Hollywood celebrities are calling for an all out strike that would span the entire movie industry in the hopes that such a move would urge President Donald Trump to resign.-1", 
+                           "The claim that former Vice President Joe Biden already has surpassed former President Barack Obama’s record of 69.4 million votes in 2008 is a LIE!-1", 
+                           "The total number of deaths in the U.S. this year is actually significantly down compared to previous years, and so COVID restrictions aren’t necessary : 2018: 2,839,205 deaths; 2019: 2,900,689 deaths; NOW, as of Nov 30th, 2020: 2, 487,350-1",
+                           "John Paulson, CEO of Paulson & Co., reportedly stuffed ballot boxes for Trump and the Republicans.-1", 
+                           "A new Danish study confirmed that masks don’t work against the coronavirus! Stay informed!-1",
+                           "Did you know that the Amazon produces 40% of the world’s oxygen levels? Top officials seem not to care about the public’s health if they are advocating for deforestation!-1",
+                           "Everyone needs to stay away from Tilapia for dinner. Farmed tilapia has chemicals in it that cause cancer and Alzheimer’s disease. It’s more healthy to eat an entire plate of bacon!-1"];
+
+
+
+
+            shuffle(stimuliOrder);
+
+
+
+
+        function startit()
+        {
+            
+            
+
+            if (count == 14)
+            {
+
+                 stimuliOrder.shift();
+
+            }
+            
+            
+
+            
+            document.getElementById('startbutton').style.display = 'none';
+            document.getElementById('tweet').style.display ='block';
+            document.getElementById('sharebuttons').style.display = 'block';
+        
+
+            
+
+            showtwt();
+
+        }
+
+
+        function showtwt()
+        {
+
+          if (count < 28)
+          {
+              
+           //For the first treatment condition
+            if (stimuliOrder[0] == 0)
+            {
+                       
+                
+                    shuffle(mixedTweets);
+
+                    mixedTweets1 = mixedTweets[0];
+
+                    mixedTweets1 = mixedTweets1.split("-");
+
+                    finalTweet = mixedTweets1[0];
+
+                    finalans = mixedTweets1[1];
+
+
+                    document.getElementById('tweetpost').innerHTML= finalTweet;
+                    document.getElementById('tweetpost').style.display = 'block';
+
+                
+                         
+                    
+                
+
+            }
+            // For the second treatment condition 
+            else 
+            {
+
+                shuffle(treatmentMixedTweets);
+
+                treatmentMixedTweets1 = treatmentMixedTweets[0];
+
+                treatmentMixedTweets1 = treatmentMixedTweets1.split("-");
+
+                treatFinalTweet = treatmentMixedTweets1[0];
+
+                finalans = treatmentMixedTweets1[1];
+
+
+                document.getElementById('tweetpost').innerHTML= treatFinalTweet;
+                document.getElementById('tweetpost').style.display = 'block';
+
+                
+
+            }
+          }
+          else 
+          {
+            endprogram();
+          }
+
+        }
+
+    
+        function endprogram()
+        {
+
+            document.getElementById('sharebuttons').style.display = 'none';
+            document.getElementById('tweet').style.display ='none';
+            document.getElementById('tweetpost').style.display = 'none';
+            document.getElementById('thankyoumessage').style.display = 'block';
+
+
+            notreatfactualshare = notreatfactualshare.toString();
+            notreatfactualnotshare = notreatfactualnotshare.toString();
+            notreatmisinfoshare = notreatmisinfoshare.toString();
+            notreatmisinfonotshare = notreatmisinfonotshare.toString();
+            treatfactualshare = treatfactualshare.toString();
+            treatfactualnotshare = treatfactualnotshare.toString();
+            treatmisinfoshare = treatmisinfoshare.toString();
+            treatmisinfonotshare = treatmisinfonotshare.toString();
+
+    
+
+    
+            
+
+            document.getElementById('sharefactualnotreat').innerHTML= "No Treatment, Shared Factual: " + notreatfactualshare;
+            document.getElementById('notsharedfactualnotreat').innerHTML= "No Treatment, Not Shared Factual: " + notreatfactualnotshare;
+            document.getElementById('sharedmisinfonotreat').innerHTML= "No Treatment, Shared Misinformation: " + notreatmisinfoshare;
+            document.getElementById('notsharedmisinfonotreat').innerHTML= "No Treatment, Not Shared Misinformation: " + notreatmisinfonotshare;
+
+            document.getElementById('sharedfactualtreat').innerHTML= "Treatment, Shared Factual: " + treatfactualshare;
+            document.getElementById('notsharedfactualtreat').innerHTML= "Treatment, Not Shared Factual: " + treatfactualnotshare;
+            document.getElementById('sharedmisinfotreat').innerHTML= "Treatment, Shared Misinformation: " + treatmisinfoshare;
+            document.getElementById('notsharedmisinfotreat').innerHTML= "Treatment, Not Shared Misinformation: " + treatmisinfonotshare;
+
+            document.getElementById('finalresults').style.display = 'block';
+
+        }
+
+        function shuffle(array) 
+        {
+            for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array [i];
+            array[i] = array[j];
+            array[j] = temp;
+            }
+        }
+
+
+        function shareeval()
+        {
+            
+            //No treatment. Clicked share and tweet was factual.
+            if (finalans == 0 && stimuliOrder[0] == 0)
+            {
+                notreatfactualshare = notreatfactualshare + 1; 
+                    
+                mixedTweets.shift();
+
+            }
+            //No treatment. Clicked share and tweet was misinfo.
+            if (finalans == 1 && stimuliOrder[0] == 0)
+            {
+
+                notreatmisinfoshare = notreatmisinfoshare + 1;
+                mixedTweets.shift();
+                
+            }
+            //Treatment. Clicked share and tweet was factual. 
+            if (finalans == 0 && stimuliOrder[0] == 1)
+            {
+
+                if (confirm("In an attempt to limit the spread of misinformation, we ask you to double-check the credibility and accuracy of the information you plan to share. This tweet may clearly be factual, but it may also be inaccurate. Click the 'OK' button if you still wish to share the post. Click the 'Cancel' button if do not want to share the post."))
+                {
+
+                    treatfactualshare = treatfactualshare + 1;
+                    treatmentMixedTweets.shift();
+
+                }
+                else
+                {
+                    treatfactualnotshare = treatfactualnotshare + 1;
+                    treatmentMixedTweets.shift();
+
+                }
+
+
+            }
+            //Treatment. Clicked share and the tweet was misinfo.
+            if (finalans == 1 && stimuliOrder[0] == 1)
+            {
+
+                if (confirm("In an attempt to limit the spread of misinformation, we ask you to double-check the credibility and accuracy of the information you plan to share. This tweet may clearly be factual, but it may also be inaccurate. Click the 'OK' button if you still wish to share the post. Click the 'Cancel' button if do not want to share the post."))
+                {
+
+                    treatmisinfoshare = treatmisinfoshare + 1;
+                    treatmentMixedTweets.shift();
+
+                }
+                else
+                {
+                    treatmisinfonotshare = treatmisinfonotshare + 1;
+                    treatmentMixedTweets.shift();
+
+                }
+
+
+            }
+
+        
+         count = count + 1;
+         
+        startit();
+        
+        }
+
+
+
+        function skipeval()
+        {
+
+            //No treatment. Clicked don't share and tweet was factual.
+            if (finalans == 0 && stimuliOrder[0] == 0)
+            {
+
+                notreatfactualnotshare = notreatfactualnotshare + 1;
+                mixedTweets.shift();
+
+            }
+            //No treatment. Clicked don't share and the tweet was misinfo.
+            if (finalans == 1 && stimuliOrder[0] == 0)
+            {
+
+                notreatmisinfonotshare = notreatmisinfonotshare + 1;
+                mixedTweets.shift();
+
+            }
+
+            //Treatment. Clicked Don't Share and the tweet was factual.
+            if (finalans == 0 && stimuliOrder[0] == 1)
+            {
+
+                treatfactualnotshare = treatfactualnotshare + 1;
+                treatmentMixedTweets.shift();
+
+            }
+            //Treatment. Clicked Don't share and the tweet was misinfo.
+            if (finalans == 1 && stimuliOrder[0] == 1)
+            {
+
+                treatmisinfonotshare = treatmisinfonotshare + 1;
+                treatmentMixedTweets.shift();
+
+            }
+
+            count = count + 1;
+
+            startit();
+
+        }
+
+
+
+</script>
+    
+    
+    
+    
+<body>
+    
+    <div id='intro' style='font-size:14pt; border:solid 3px; padding: 1px'>INSTRUCTIONS: You will be shown a series of Twitter posts. Each of the posts will have a 'share' button or a 'don't share' button. For tweets you think are true, click the 'share' button. For tweets you think are false, click the 'don't share' button.</div><br>
+    
+    <button id='startbutton' type='button' style='font-size:24pt;background:#ddffdd' onclick='this.blur();startit()'>Click Here to Start</button><br><br>
+    
+    <div id='tweet' style='font-size:14pt; border:solid 3px; padding: 1px; height: 300px;
+    width: 600px; position:absolute; top: 20%;
+    left: 30%; display:none'>
+
+    <img src='https://thumbs.dreamstime.com/b/profile-anonymous-face-icon-gray-silhouette-person-male-default-avatar-photo-placeholder-isolated-white-background-profile-107327860.jpg'
+        width='80px' height='80px'>
+
+    <div id='user' style='font-size:18pt; position:absolute;top:10%;left:20%'><b>Anonymous Twitter User</b></div>
+
+    <div id='time' style='font-size:14pt; position:absolute;top:11%;left:80%'> 17 min ago</div> <br>
+    
+    <div id='tweetpost' style='font-size:20pt;padding: 35px; display:none'></div>
+
+    </div><br><br>
+
+
+    <div id='sharebuttons' style=' display:none; position:absolute; top: 63%; left: 35%;'>
+    <button id='share' type='button' style='font-size:24pt;background:#ddffdd;' onmouseup='shareeval()'>Share</button>
+    <button id='dontshare' type='button' style='font-size:24pt;background:#ddffdd;' onmouseup='skipeval()'>Don't Share</button><br>
+    </div>
+
+    <div id='thankyoumessage' style='display:none;font-size:35pt;' text-align='center'>Thank You For Participating!</div><br><br><br><br><br>
+    
+    <table id='finalresults' border='0' table-layout=fixed' style='display:none'>
+        <tr><div id='sharefactualnotreat' style='font-size:20pt'></div></tr>
+        <tr><div id='notsharedfactualnotreat' style='font-size:20pt'></div></tr>
+        <tr><div id='sharedmisinfonotreat' style='font-size:20pt'></div></tr>
+        <tr><div id='notsharedmisinfonotreat' style='font-size:20pt'></div></tr>
+        
+        <tr><div id='sharedfactualtreat' style='font-size:20pt'></div></tr>
+        <tr><div id='notsharedfactualtreat' style='font-size:20pt'></div></tr>
+        <tr><div id='sharedmisinfotreat' style='font-size:20pt'></div></tr>
+        <tr><div id='notsharedmisinfotreat' style='font-size:20pt'></div></tr>
+    </table><br><br>
+
+
+
+
+</body>
